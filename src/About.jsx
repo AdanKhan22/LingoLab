@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function About() {
+export default function About(props) {
   return (
     <div>
       <div className="accordion" id="accordionExample">

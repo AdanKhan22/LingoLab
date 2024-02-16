@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
-  const [text, setText] = useState("Enter Text Here");
+  const [text, setText] = useState("");
 
   const handleOnChange = (event) => {
     setText(event.target.value);
@@ -45,14 +45,14 @@ export default function TextForm(props) {
           value={text}
           onChange={handleOnChange}
           style={{
-            backgroundColor: props.mode === `light` ? `white` : `gray`,
+            backgroundColor: props.mode === `light` ? `white` : `#bbbbbb`,
           }}
         />
       </div>
 
       <div className="text-center">
         <button
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-1 my-1"
           type="submit"
           onClick={handleUpperCase}
         >
@@ -60,7 +60,7 @@ export default function TextForm(props) {
         </button>
 
         <button
-          className="btn btn-primary"
+          className="btn btn-primary mx-1 my-"
           type="submit"
           onClick={handleLowerCase}
         >
@@ -68,7 +68,7 @@ export default function TextForm(props) {
         </button>
 
         <button
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-1 my-"
           type="submit"
           onClick={handleReset}
         >
@@ -76,7 +76,7 @@ export default function TextForm(props) {
         </button>
 
         <button
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-1 my-"
           type="submit"
           onClick={handleReverse}
         >
@@ -94,7 +94,8 @@ export default function TextForm(props) {
         </p>
         <p style={{ color: `${props.mode}` === `light` ? `black` : `white` }}>
           {" "}
-          Number of words are {text.split(" ").length}
+          Number of words are{" "}
+          {text.split(" ").filter((word) => word.length !== 0).length}
         </p>
       </div>
     </>
